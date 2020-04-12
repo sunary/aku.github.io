@@ -13,6 +13,7 @@ aliases = []
 
 + Software Engineer.
 + Thích đủ thứ.
++ Mọi phản hồi xin gửi về: [v2nhat@gmail.com](mailto:v2nhat@gmail.com)
 
 ### Về blog
 

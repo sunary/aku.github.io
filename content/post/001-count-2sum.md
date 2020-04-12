@@ -1,8 +1,8 @@
 +++
 author = "Sunary"
-title = "Đếm các cặp số hoán vị khác nhau bằng tổng cho trước."
-date = "2020-04-10"
-description = "Đếm các cặp số hoán vị khác nhau bằng tổng cho trước."
+title = "Đếm các cặp số hoán vị khác nhau bằng tổng cho trước"
+date = "2020-04-10T10:00:00+07:00"
+description = "Đếm các cặp số hoán vị khác nhau bằng tổng cho trước"
 tags = ["algorithm", "sum", "count"]
 categories = ["coding"]
 series = []
@@ -226,13 +226,11 @@ for i in range(len(newN)):
 
 Giải thích 1 chút:
 + `newN[i], newN[j], newN[l]` đã được sort, nên khi chèn remain vào để làm 1 unique quadruplets thì *phải đảm bảo chèn remain vào vị trí hợp lí sao cho các giá trị trong quadruplets là tăng dần*.
-+ sẽ ra sao nếu chỉ có 1 số `a` nằm trong N mà `new[i] == a` và `remain == a`, đó là lý do biến `num` ra đời.
++ Sẽ ra sao nếu chỉ có 1 số `a` nằm trong N mà `new[i] == a` và `remain == a`, đó là lý do biến `num` ra đời.
 
 #### Submit
 
-thử submit thì pass, nhưng kết quả không được tốt lắm, chắc sẽ có thêm mấy cái cần tối ưu.
-
-*// Sẽ cập nhật nếu thêm được cái gì*
+Thử submit thì pass, nhưng kết quả không được tốt lắm, chắc sẽ có thêm mấy cái cần tối ưu.
 
 ```
 Success
@@ -240,6 +238,8 @@ Details
 Runtime: 2064 ms, faster than 5.88% of Python online submissions for 4Sum.
 Memory Usage: 13 MB, less than 13.64% of Python online submissions for 4Sum.
 ```
+*// Sẽ cập nhật nếu thêm được cái gì*
+
 ---
 
 #### References:

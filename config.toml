@@ -37,7 +37,7 @@ googleAnalytics = "UA-XXXXXXXX-XX" # Optional
   weight = 3
 
 [params.logo]
-  url = "icon.png"
+  url = "logo-aku.png"
   width = 50
   height = 50
   alt = "Logo"
