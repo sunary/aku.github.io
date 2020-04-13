@@ -1,0 +1,35 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>mathematic on Sunary&#39; Blog</title>
+		<link>https://sunary.github.io/public/categories/mathematic/</link>
+		<description>Recent content in mathematic on Sunary&#39; Blog</description>
+		<generator>Hugo -- gohugo.io</generator>
+		
+  		<language>en</language>
+		
+		<managingEditor>Page(/categories/mathematic) (Sunary)</managingEditor>
+    	
+  		<lastBuildDate>Sat, 11 Apr 2020 11:55:36 +0700</lastBuildDate>
+		
+		<atom:link href="https://sunary.github.io/public/categories/mathematic/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Quy hoạch động</title>
+			<link>https://sunary.github.io/public/post/002-dynamic-programming/</link>
+			<pubDate>Sat, 11 Apr 2020 11:55:36 +0700</pubDate>
+			<guid>https://sunary.github.io/public/post/002-dynamic-programming/</guid>
+			<description>Chắc ai từng làm các bài thuật toán cũng từng nghe đến quy hoạch động (DP), thực ra nó không cao siêu khó hiểu như các bạn nghĩ. Lý do mình viết bài này để để tham chiếu, vì các bài trong tương lai mình nghĩ sẽ dùng phương pháp này nhiều.
+Định nghĩa: Mình tìm kiếm 1 vài chỗ thì thấy DP được định nghĩa khá đầy đủ như sau:</description>
+		</item>
+      	
+		<item>
+			<title>Đếm các cặp số hoán vị khác nhau bằng tổng cho trước</title>
+			<link>https://sunary.github.io/public/post/001-count-2sum/</link>
+			<pubDate>Fri, 10 Apr 2020 10:00:00 +0700</pubDate>
+			<guid>https://sunary.github.io/public/post/001-count-2sum/</guid>
+			<description>Đề bài: Bài này mình được 1 công ty nào đó hỏi lúc phỏng vấn, dạo gần đây có 1 người bạn gửi cho bài 4sum nên nhớ lại và chọn làm bài đầu tiên cho blog luôn.
+Cho trước dãy số N, và số k. Đếm tất cả các cặp số hoán vị duy nhất (a, b) sao cho: a + b = k với a, b thuộc N. Ví dụ:  input:  N = [1, 2, 3, 3, 4] k = 5  output:  2  giải thích:  Vì chỉ có 2 cặp số thỏa mãn: (1, 4) và (2, 3) lưu ý: (1, 4) cũng là cặp số (4, 1) nên chỉ đếm 1 lần, tương tự với (3, 2) và (2, 3).</description>
+		</item>
+      	
+	</channel>
+</rss>

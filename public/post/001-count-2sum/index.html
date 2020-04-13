@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+<title>Đếm các cặp số hoán vị khác nhau bằng tổng cho trước</title>
+
+
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXX-XX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-XXXXXXXX-XX');
+  </script>
+  
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="alternate" type="application/rss+xml" href="https://sunary.github.io/public/index.xml" title="Sunary&#39; Blog">
+
+<link id="dark-mode-theme" rel="stylesheet" href="https://sunary.github.io/public/css/dark.css" />
+<link rel="stylesheet" href="https://sunary.github.io/public/fontawesome/css/all.min.css" />
+
+<script src="https://sunary.github.io/public/js/bundle.js"></script>
+<script src="https://sunary.github.io/public/js/instantpage.js" type="module" defer></script>
+<meta name="generator" content="Hugo 0.66.0" />
+  </head>
+  <body>
+    
+  
+
+
+
+
+  <header>
+    <nav class="navbar">
+  <div class="nav">
+    
+      <a href="https://sunary.github.io/public/" class="nav-logo">
+      <img src="https://sunary.github.io/public/images/logo-aku.png"
+           width="50"
+           height="50"
+           alt="Logo">
+      </a>
+    
+
+    <ul class="nav-links">
+      
+        
+          <li><a href="/public/about/" name="About"><i class="fas fa-user fa-lg"></i></a></li>
+        
+      
+        
+          <li><a href="/public/tags" name="Tags"><i class="fas fa-tag fa-lg"></i></a></li>
+        
+      
+        
+          <li><a href="/public/categories" name="Category"><i class="fas fa-folder-open fa-lg"></i></a></li>
+        
+      
+    </ul>
+  </div>
+</nav>
+
+    <div class="intro-header">
+      <div class="container">
+        <div class="post-heading">
+          
+            <h1>Đếm các cặp số hoán vị khác nhau bằng tổng cho trước</h1>
+          
+          
+            <span class="meta-post">
+  <i class="fa fa-calendar-alt"></i>&nbsp;Apr 10, 2020
+  
+    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
+    
+      <a href="https://sunary.github.io/public//categories/coding/">coding</a>&nbsp;
+    
+  
+</span>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+  <div class="container" role="main">
+    <article class="article" class="blog-post">
+      
+    <h3 id="đề-bài">Đề bài:</h3>
+<p>Bài này mình được 1 công ty nào đó hỏi lúc phỏng vấn, dạo gần đây có 1 người bạn gửi cho bài <a href="https://leetcode.com/problems/4sum/">4sum</a> nên nhớ lại và chọn làm bài đầu tiên cho blog luôn.</p>
+<pre><code>Cho trước dãy số N, và số k.
+Đếm tất cả các cặp số hoán vị duy nhất (a, b) sao cho: a + b = k với a, b thuộc N.
+</code></pre><h4 id="ví-dụ">Ví dụ:</h4>
+<ul>
+<li>input:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">N <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>]
+k <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+</code></pre></div><ul>
+<li>output:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ae81ff">2</span>
+</code></pre></div><ul>
+<li>giải thích:</li>
+</ul>
+<p>Vì chỉ có 2 cặp số thỏa mãn: <strong>(1, 4) và (2, 3)</strong>
+<em>lưu ý: (1, 4) cũng là cặp số (4, 1) nên chỉ đếm 1 lần, tương tự với (3, 2) và (2, 3).</em></p>
+<p><em>// Đề bài là mình nhớ lại, nên ko bắt bẻ nếu không chính xác hoặc khó hiểu.</em></p>
+<h3 id="let-the-hunt-begin">Let the hunt begin:</h3>
+<p>Nói luôn là bài này mình có hỏi ứng viên khi phỏng vấn ở công ty mình, thì họ phạm 2 lỗi sau:</p>
+<ol>
+<li>Không giải quyết được trường hợp các cặp số hoán vị duy nhất.</li>
+<li>Tối ưu.</li>
+</ol>
+<h4 id="1-không-giải-quyết-được-trường-hợp-các-cặp-số-hoán-vị-duy-nhất">1. Không giải quyết được trường hợp các cặp số hoán vị duy nhất.</h4>
+<p>Lấy luôn ví dụ trên, thì bạn đó giải ra đếm các kết quả của <strong>(1, 4), (2, 3), (2, 3), (3, 2), (3, 2), (4, 1)</strong></p>
+<p><strong>Có 2 vấn đề khiến hoán vị bị lặp lại:</strong></p>
+<ul>
+<li><strong>(1, 4) và (4, 1)</strong>: Bạn đếm 1 hoán vị 2 lần: bạn để ý <code>a + b = k</code>, bạn đếm (a, b) rồi (b, a), không sai. Nhưng làm sao chỉ đếm 1 lần thôi, tức chỉ đếm cho a thôi, không đếm cho b. Rất đơn giản: <code>a + b = k</code> thì 1 trong 2 số a và b phải nhỏ hơn k/2 <em>(có trường hợp a = b = k/2 mình sẽ nói sau)</em>, nên code counter của mình sẽ là:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">if</span> a <span style="color:#f92672">&lt;</span> k<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">and</span> a <span style="color:#f92672">+</span> b <span style="color:#f92672">==</span> k:
+    counter <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</code></pre></div><ul>
+<li><strong>(2, 3) và (2, 3)</strong>: Với số 3 xuất hiện 2 lần thì bạn đếm 2 lần. Cách đơn giản là tạo 1 biến để track những cặp số đã được count trước đó:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">marked <span style="color:#f92672">=</span> {}
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> marked<span style="color:#f92672">.</span>get((a, b)) <span style="color:#f92672">and</span> a <span style="color:#f92672">+</span> b <span style="color:#f92672">==</span> k:
+    counter <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+    marked[(a, b)] <span style="color:#f92672">=</span> True
+</code></pre></div><p>Nhưng có 1 cách đơn giản hơn là: Tại sao bạn không loại bỏ những số trùng của mảng N cho trước:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">distinctN <span style="color:#f92672">=</span> set(N)
+</code></pre></div><p>Bạn nên tự tạo hàm đưa vào <em>distinctN</em> cho riêng mình</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+countHaft <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+distinctN <span style="color:#f92672">=</span> set()
+<span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> N:
+    <span style="color:#66d9ef">if</span> x <span style="color:#f92672">==</span> k<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>:
+        countHaft <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">else</span>:
+        distinctN<span style="color:#f92672">.</span>add(x)
+
+<span style="color:#66d9ef">if</span> countHaft <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">2</span>:
+    count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</code></pre></div><p>Lý do mình tự tính distanceN là vì loại bỏ những số <code>a = b = k/2</code> như đã nói ở trên bằng cách đếm riêng, và xóa nó ra khỏi <em>distinctN</em>.</p>
+<h4 id="2-tối-ưu">2. Tối ưu:</h4>
+<p>Dễ thấy bài toán có thể giải bằng 2 vòng for duyệt qua <em>distinctN</em>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> a <span style="color:#f92672">in</span> distinctN:
+    <span style="color:#66d9ef">for</span> b <span style="color:#f92672">in</span> distinctN:
+        <span style="color:#66d9ef">if</span> a <span style="color:#f92672">&lt;</span> k<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">and</span> a <span style="color:#f92672">+</span> b <span style="color:#f92672">==</span> k:
+            count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</code></pre></div><p>Nhưng không biết bạn vừa bỏ qua gì ko? <em>distinctN</em> là set đã được index unique, tức là bạn có thể tìm 1 phần tử bất kì với <code>O(1)</code>, và code trên từ <code>O(n^2)</code> thành <code>O(n)</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> a <span style="color:#f92672">in</span> distinctN:
+    <span style="color:#66d9ef">if</span> a <span style="color:#f92672">&lt;</span> k<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">and</span> k <span style="color:#f92672">-</span> a <span style="color:#f92672">in</span> distinctN:
+        count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</code></pre></div><p>Ok, vậy chương trình hoàn chỉnh sẽ là:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+countHaft <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+distinctN <span style="color:#f92672">=</span> set()
+<span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> N:
+    <span style="color:#66d9ef">if</span> x <span style="color:#f92672">==</span> k<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>:
+        countHaft <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">else</span>:
+        distinctN<span style="color:#f92672">.</span>add(x)
+
+<span style="color:#66d9ef">if</span> countHaft <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">2</span>:
+    count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+
+<span style="color:#66d9ef">for</span> a <span style="color:#f92672">in</span> distinctN:
+    <span style="color:#66d9ef">if</span> a <span style="color:#f92672">&lt;</span> k<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">and</span> k <span style="color:#f92672">-</span> a <span style="color:#f92672">in</span> distinctN:
+        count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</code></pre></div><p>Thấy vẫn không ưng ý lắm, muốn tối ưu thêm 1 chút nữa: Chuyện là bạn phải duyệt qua tất cả các giá trị trong <em>distinctN</em> nhưng chỉ làm việc với 1 nửa của chúng bằng cách kiểm tra <code>x &lt; k/2</code>. Vậy thì ngay từ đầu mình kiểm tra giùm nó luôn, khỏi phải duyệt một lần nữa:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+countHaft <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+distinctLowerN <span style="color:#f92672">=</span> set()
+distinctHigherN <span style="color:#f92672">=</span> set()
+<span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> N:
+    <span style="color:#66d9ef">if</span> x <span style="color:#f92672">==</span> k<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>:
+        countHaft <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">elif</span> x <span style="color:#f92672">&lt;</span> k<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>:
+        distinctLowerN<span style="color:#f92672">.</span>add(x)
+    <span style="color:#66d9ef">elif</span> x <span style="color:#f92672">&gt;</span> k<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>:
+        distinctHigherN<span style="color:#f92672">.</span>add(x)
+
+<span style="color:#66d9ef">if</span> countHaft <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">2</span>:
+    count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+
+<span style="color:#66d9ef">for</span> a <span style="color:#f92672">in</span> distinctLowerN:
+    <span style="color:#66d9ef">if</span> k <span style="color:#f92672">-</span> a <span style="color:#f92672">in</span> distinctHigherN:
+        count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</code></pre></div><h4 id="giải-quyết-bài-4sum-đã-đề-cập-ở-trên">Giải quyết bài 4sum đã đề cập ở trên:</h4>
+<p>Bài trên tìm tổng 2 số với O(n) thì bài này làm tương tự với độ phức tạp là O(n^3) <em>(Không phải O(n^2) nghe, bình thường là duyệt qua 4 vòng for, tối ưu được 1 vòng bằng cách tương tự trên thôi)</em>.
+Nhưng không phải dùng set mà là dùng map, đơn giản vì set không lưu được số lượng trùng của các phần tử, và không được loại bỏ các phần tử bằng k/2 hay k/4</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">distinctN <span style="color:#f92672">=</span> {}
+
+<span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> N:
+    <span style="color:#66d9ef">if</span> x <span style="color:#f92672">in</span> distinctN:
+        distinctN[x] <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">else</span>:
+        distinctN[x] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</code></pre></div><p>Và tiến hành duyệt 3 vòng for qua N, và check giá trị <code>k - a - b - c</code> có thuộc trong <code>distinctN</code> hay không, nhân đây thì có 1 chút tối ưu: nếu N có nhiều hơn 4 phần tử thì sao? nó sẽ bị dư khi tính toán nên tốt nhất mình nên tái tạo lại N:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">newN <span style="color:#f92672">=</span> []
+sortedKey <span style="color:#f92672">=</span> sorted(distinctN<span style="color:#f92672">.</span>keys())
+
+<span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> sortedKey:
+    newN <span style="color:#f92672">+=</span> [x] <span style="color:#f92672">*</span> min(distinctN<span style="color:#f92672">.</span>get(x), <span style="color:#ae81ff">4</span>)
+</code></pre></div><p>Vậy chương trình hoàn chỉnh sẽ là:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+distinctN <span style="color:#f92672">=</span> {}
+
+<span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> N:
+    <span style="color:#66d9ef">if</span> x <span style="color:#f92672">in</span> distinctN:
+        distinctN[x] <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">else</span>:
+        distinctN[x] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+
+newN <span style="color:#f92672">=</span> []
+sortedKey <span style="color:#f92672">=</span> sorted(distinctN<span style="color:#f92672">.</span>keys())
+
+<span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> sortedKey:
+    newN <span style="color:#f92672">+=</span> [x] <span style="color:#f92672">*</span> min(distinctN<span style="color:#f92672">.</span>get(x), <span style="color:#ae81ff">4</span>)
+
+marked <span style="color:#f92672">=</span> {}
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(newN)):
+    <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, len(newN)):
+        <span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> range(j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, len(newN)):
+            remain <span style="color:#f92672">=</span> k <span style="color:#f92672">-</span> newN[i] <span style="color:#f92672">-</span> newN[j] <span style="color:#f92672">-</span> newN[l]
+            <span style="color:#66d9ef">if</span> remain <span style="color:#f92672">&lt;</span> newN[i]:
+                key <span style="color:#f92672">=</span> (remain, newN[i], newN[j], newN[l])
+            <span style="color:#66d9ef">elif</span> remain <span style="color:#f92672">&lt;</span> newN[j]:
+                key <span style="color:#f92672">=</span> (newN[i], remain, newN[j], newN[l])
+            <span style="color:#66d9ef">elif</span> remain <span style="color:#f92672">&lt;</span> newN[l]:
+                key <span style="color:#f92672">=</span> (newN[i], newN[j], remain, newN[l])
+            <span style="color:#66d9ef">else</span>:
+                key <span style="color:#f92672">=</span> (newN[i], newN[j], newN[l], remain)
+
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> marked<span style="color:#f92672">.</span>get(key) <span style="color:#f92672">and</span> remain <span style="color:#f92672">in</span> distinctN:
+                num <span style="color:#f92672">=</span> distinctN<span style="color:#f92672">.</span>get(remain)
+                <span style="color:#66d9ef">if</span> remain <span style="color:#f92672">==</span> newN[i]:
+                    num <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+                <span style="color:#66d9ef">if</span> remain <span style="color:#f92672">==</span> newN[j]:
+                    num <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+                <span style="color:#66d9ef">if</span> remain <span style="color:#f92672">==</span> newN[l]:
+                    num <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+                <span style="color:#66d9ef">if</span> num <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>:
+                    count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+                    marked[key] <span style="color:#f92672">=</span> True
+</code></pre></div><p>Giải thích 1 chút:</p>
+<ul>
+<li><code>newN[i], newN[j], newN[l]</code> đã được sort, nên khi chèn remain vào để làm 1 unique quadruplets thì <em>phải đảm bảo chèn remain vào vị trí hợp lí sao cho các giá trị trong quadruplets là tăng dần</em>.</li>
+<li>Sẽ ra sao nếu chỉ có 1 số <code>a</code> nằm trong N mà <code>new[i] == a</code> và <code>remain == a</code>, đó là lý do biến <code>num</code> ra đời.</li>
+</ul>
+<h4 id="submit">Submit</h4>
+<p>Thử submit thì pass, nhưng kết quả không được tốt lắm, chắc sẽ có thêm mấy cái cần tối ưu.</p>
+<pre><code>Success
+Details 
+Runtime: 2064 ms, faster than 5.88% of Python online submissions for 4Sum.
+Memory Usage: 13 MB, less than 13.64% of Python online submissions for 4Sum.
+</code></pre><p><em>// Sẽ cập nhật nếu thêm được cái gì</em></p>
+<hr>
+<h4 id="references">References:</h4>
+<ul>
+<li><a href="https://leetcode.com/problems/4sum/">4sum</a></li>
+</ul>
+
+
+
+      
+        <div class="blog-tags">
+          
+            <a href="https://sunary.github.io/public//tags/algorithm/">algorithm</a>&nbsp;
+          
+            <a href="https://sunary.github.io/public//tags/sum/">sum</a>&nbsp;
+          
+            <a href="https://sunary.github.io/public//tags/count/">count</a>&nbsp;
+          
+        </div>
+      
+    </article>
+    
+    
+  </div>
+
+    <footer>
+  <div class="container">
+    <p class="credits copyright">
+      <a href="https://sunary.github.io/public/about">Sunary</a>
+      &nbsp;&copy;
+      2020
+
+      
+        &nbsp;/&nbsp;
+        <a href="https://sunary.github.io/public/">Sunary&#39; Blog</a>
+      
+
+      &nbsp;&ndash;&nbsp;
+      <i class="fas fa-moon" id="dark-mode-toggle"></i>
+
+      <p class="credits theme-by">
+        Powered By <a href="https://gohugo.io">Hugo</a>&nbsp;Theme <a href="https://github.com/matsuyoshi30/harbor">Harbor</a>
+      </p>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

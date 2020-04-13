@@ -1,5 +1,5 @@
 theme = "harbor"
-baseurl = "https://sunary.github.io/"
+baseurl = "https://sunary.github.io/public/"
 title = "Sunary' Blog"
 author = "Sunary"
 paginate = 5
