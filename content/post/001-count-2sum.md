@@ -244,4 +244,4 @@ Memory Usage: 13 MB, less than 13.64% of Python online submissions for 4Sum.
 
 #### References:
 
-+ [4sum](https://leetcode.com/problems/4sum/)
++ [4sum](https://leetcode.com/problems/4sum)

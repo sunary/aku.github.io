@@ -185,8 +185,13 @@ Bạn mua vào thời điểm giá cổ phiếu là 5, bán vào lúc 20. Lợi 
 
 ---
 
+#### Bổ sung:
+
+Có lẽ cách tiếp cận DP của mình giống với `linear programming`, mình có để link ở dưới cho bạn nào quan tâm.
+
 #### References:
 
 + [mathematical-induction](https://en.wikipedia.org/wiki/Mathematical_induction)
 + [top-50-dynamic-programming-practice-problems](https://blog.usejournal.com/top-50-dynamic-programming-practice-problems-4208fed71aa3)
 + [geeksforgeeks](https://www.geeksforgeeks.org/maximum-subarray-sum-using-divide-and-conquer-algorithm)
++ [dynamic-programming-and-linear-programming](https://www.quora.com/What-is-the-difference-between-dynamic-programming-and-linear-programming)
