@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>method on Sunary&#39; Blog</title>
-		<link>https://sunary.github.io/public/categories/method/</link>
+		<link>https://aku.vn/public/categories/method/</link>
 		<description>Recent content in method on Sunary&#39; Blog</description>
 		<generator>Hugo -- gohugo.io</generator>
 		
@@ -11,31 +11,31 @@
     	
   		<lastBuildDate>Sat, 11 Apr 2020 11:55:36 +0700</lastBuildDate>
 		
-		<atom:link href="https://sunary.github.io/public/categories/method/" rel="self" type="application/rss+xml" />
+		<atom:link href="https://aku.vn/public/categories/method/" rel="self" type="application/rss+xml" />
 		
 		<item>
 			<title>132 Pattern</title>
-			<link>https://sunary.github.io/public/post/003-132-pattern/</link>
+			<link>https://aku.vn/public/post/003-132-pattern/</link>
 			<pubDate>Tue, 21 Apr 2020 10:00:00 +0700</pubDate>
-			<guid>https://sunary.github.io/public/post/003-132-pattern/</guid>
+			<guid>https://aku.vn/public/post/003-132-pattern/</guid>
 			<description>Đề bài: Các bạn có thể xem tại đây 132-pattern hoặc có thể xem mình diễn giải lại như sau:
 Dãy số N được gọi là match với 132 pattern nếu như theo thứ tự tồn tại 3 phần tử thuộc N sao cho: N[i] &amp;lt; N[k] &amp;lt; N[j] với điều kiện i &amp;lt; j &amp;lt; k Kiểm tra xem dãy N cho trước có match với 132 pattern không? Ví dụ:  input:  N = [1, 2, 3, 4]  output:  False  input:  N = [3, 1, 4, 2]  output:  True  giải thích:  Đơn giản rồi: Với N = [1, 2, 3, 4] thì không khỏa mãn, nhưng với N = [3, 1, 4, 2] thì [1, 4, 2] tương ứng với pattern 132.</description>
 		</item>
       	
 		<item>
 			<title>Quy hoạch động</title>
-			<link>https://sunary.github.io/public/post/002-dynamic-programming/</link>
+			<link>https://aku.vn/public/post/002-dynamic-programming/</link>
 			<pubDate>Sat, 11 Apr 2020 11:55:36 +0700</pubDate>
-			<guid>https://sunary.github.io/public/post/002-dynamic-programming/</guid>
+			<guid>https://aku.vn/public/post/002-dynamic-programming/</guid>
 			<description>Chắc ai từng làm các bài thuật toán cũng từng nghe đến quy hoạch động (DP), thực ra nó không cao siêu khó hiểu như các bạn nghĩ. Lý do mình viết bài này để để tham chiếu, vì các bài trong tương lai mình nghĩ sẽ dùng phương pháp này nhiều.
 Định nghĩa: Mình tìm kiếm 1 vài chỗ thì thấy DP được định nghĩa khá đầy đủ như sau:</description>
 		</item>
       	
 		<item>
 			<title>Đếm các cặp số hoán vị khác nhau bằng tổng cho trước</title>
-			<link>https://sunary.github.io/public/post/001-count-2sum/</link>
+			<link>https://aku.vn/public/post/001-count-2sum/</link>
 			<pubDate>Fri, 10 Apr 2020 10:00:00 +0700</pubDate>
-			<guid>https://sunary.github.io/public/post/001-count-2sum/</guid>
+			<guid>https://aku.vn/public/post/001-count-2sum/</guid>
 			<description>Đề bài: Bài này mình được 1 công ty nào đó hỏi lúc phỏng vấn, dạo gần đây có 1 người bạn gửi cho bài 4sum nên nhớ lại và chọn làm bài đầu tiên cho blog luôn.
 Cho trước dãy số N, và số k. Đếm tất cả các cặp số hoán vị duy nhất (a, b) sao cho: a + b = k với a, b thuộc N. Ví dụ:  input:  N = [1, 2, 3, 3, 4] k = 5  output:  2  giải thích:  Vì chỉ có 2 cặp số thỏa mãn: (1, 4) và (2, 3) lưu ý: (1, 4) cũng là cặp số (4, 1) nên chỉ đếm 1 lần, tương tự với (3, 2) và (2, 3).</description>
 		</item>
