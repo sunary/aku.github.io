@@ -9,10 +9,19 @@
 		
 		<managingEditor>Page(/categories/coding) (Sunary)</managingEditor>
     	
-  		<lastBuildDate>Tue, 21 Apr 2020 10:00:00 +0700</lastBuildDate>
+  		<lastBuildDate>Fri, 08 May 2020 11:55:36 +0700</lastBuildDate>
 		
 		<atom:link href="https://aku.vn/public/categories/coding/" rel="self" type="application/rss+xml" />
 		
+		<item>
+			<title>Quy hoạch động P2</title>
+			<link>https://aku.vn/public/post/004-dynamic-programming-2/</link>
+			<pubDate>Fri, 08 May 2020 11:55:36 +0700</pubDate>
+			<guid>https://aku.vn/public/post/004-dynamic-programming-2/</guid>
+			<description>Đợt trước mình đã có 1 bài nói về Quy hoạch động (DP), nhưng sau nghĩ lại thấy thiếu 1 số ví dụ để có thể hiểu rõ thêm DP dùng cho những bài toán nào.
+References:  dp1 top-50-dynamic-programming-practice-problems  </description>
+		</item>
+      	
 		<item>
 			<title>132 Pattern</title>
 			<link>https://aku.vn/public/post/003-132-pattern/</link>
@@ -23,10 +32,10 @@ Dãy số N được gọi là match với 132 pattern nếu như theo thứ t�
 		</item>
       	
 		<item>
-			<title>Quy hoạch động</title>
-			<link>https://aku.vn/public/post/002-dynamic-programming/</link>
+			<title>Quy hoạch động P1</title>
+			<link>https://aku.vn/public/post/002-dynamic-programming-1/</link>
 			<pubDate>Sat, 11 Apr 2020 11:55:36 +0700</pubDate>
-			<guid>https://aku.vn/public/post/002-dynamic-programming/</guid>
+			<guid>https://aku.vn/public/post/002-dynamic-programming-1/</guid>
 			<description>Chắc ai từng làm các bài thuật toán cũng từng nghe đến quy hoạch động (DP), thực ra nó không cao siêu khó hiểu như các bạn nghĩ. Lý do mình viết bài này để để tham chiếu, vì các bài trong tương lai mình nghĩ sẽ dùng phương pháp này nhiều.
 Định nghĩa: Mình tìm kiếm 1 vài chỗ thì thấy DP được định nghĩa khá đầy đủ như sau:</description>
 		</item>

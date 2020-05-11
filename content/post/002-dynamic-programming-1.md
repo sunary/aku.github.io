@@ -1,8 +1,8 @@
 +++
 author = "Sunary"
-title = "Quy hoạch động"
+title = "Quy hoạch động P1"
 date = "2020-04-11T11:55:36+07:00"
-description = "Quy hoạch động"
+description = "Quy hoạch động P1"
 tags = ["algorithm", "dp"]
 categories = ["coding", "method", "mathematic"]
 series = []
@@ -191,6 +191,7 @@ Có lẽ cách tiếp cận DP của mình giống với `linear programming`, m
 
 #### References:
 
++ [dp2](https://aku.vn/public/post/002-dynamic-programming-2/)
 + [mathematical-induction](https://en.wikipedia.org/wiki/Mathematical_induction)
 + [top-50-dynamic-programming-practice-problems](https://blog.usejournal.com/top-50-dynamic-programming-practice-problems-4208fed71aa3)
 + [geeksforgeeks](https://www.geeksforgeeks.org/maximum-subarray-sum-using-divide-and-conquer-algorithm)

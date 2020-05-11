@@ -148,48 +148,50 @@ Cho T là dãy các tuple (t1, t2) t1 < t2 và số k cho trước.
 Kiểm tra xem có tồn tại tuple (t1, t2) sao cho t1 < k < t2
 ```
 
+Thực ra nó là bài [merge-intervals](https://leetcode.com/problems/merge-intervals)
+
 Chúng ta sẽ dùng binary search cho bài này, nên cần có 2 method là `add()` và `find()`
 
 ```python
 
 def add(t):
-    global T
     if not T:
-        T = [t]
-        return
+		return [t]
 
-    left, right = 0, len(T) - 1
-    mid = 0
-    while True:
-        mid = (left + right)/2
-        if mid == 0 or mid == len(T) - 1 or (T[mid][0] <= t[0] and t[0] < T[mid + 1][0]):
-             break 
-        elif t[0] < T[mid][0]:
-            right = mid - 1
-        else:
-            left = mid + 1
+	left, right = 0, len(T) - 1
+	mid = 0
+	while True:
+	    mid = (left + right)/2
+	    if mid == 0 or mid == len(T) - 1 or (T[mid][0] <= t[0] and t[0] < T[mid + 1][0]):
+	         break 
+	    elif t[0] < T[mid][0]:
+	        right = mid - 1
+	    else:
+	        left = mid + 1
 
-    if mid == 0 and not (len(T) > 1 and T[mid][0] <= t[0] and t[0] < T[mid + 1][0]):
-        if t[0] == T[0][0] or (T[0][0] < t[1] and t[1] < T[0][1]):
-            skip_num = 0
-            while mid+skip_num < len(T)-1 and t[1] > T[mid+skip_num][1]:
-                skip_num += 1
-            T[0] = (T[0][0], max(t[1], T[mid+skip_num][1]))
-            T = [T[0]] + T[mid+skip_num+1:]
-        else:
-            T = [t] + T
-    else:
-        if t[0] == T[mid][0] or (t[0] < T[mid][1] and T[mid][1] < t[1]):
-            skip_num = 0
-            while mid+skip_num < len(T)-1 and t[1] > T[mid+skip_num][1]:
-                skip_num += 1
-            T[mid] = (T[mid][0], max(t[1], T[mid+skip_num][1]))
-            T = T[:mid+1] + T[mid+skip_num+1:]
-        else:
-            T = T[:mid] + [t] + T[:mid]
+	if mid == 0 and t[0] < T[0][0]:
+		T = [t] + T
+	else:
+        while mid < len(T) - 1 and t[0] > T[mid+1][0]:
+			mid += 1
+		T = T[:mid+1] + [t] + T[mid+1:]
+		mid += 1
 
-def find(x):
-    global T
+	if mid > 0 and T[mid-1][0] == T[mid][0]:
+		T = T[:mid-1] + [[T[mid][0], max(T[mid-1][1], T[mid][1])]] + T[mid+1:]
+        mid -= 1
+	elif mid > 0 and T[mid-1][1] >= T[mid][0]:
+		T = T[:mid-1] + [[T[mid-1][0], max(T[mid-1][1], T[mid][1])]] + T[mid+1:]
+        mid -= 1
+
+	skip = 1
+	while mid+skip < len(T) and T[mid][1] >= T[mid+skip][0]:
+		skip += 1
+	if skip > 1:
+		T = T[:mid] + [[T[mid][0], max(T[mid][1], T[mid + skip - 1][1])]] + T[mid + skip:]
+	return T
+
+def find(T, x):
     left, right = 0, len(T) - 1
     mid = 0
     while True:
@@ -212,8 +214,9 @@ Ví dụ với `T = [(1, 3), (8, 10)]`
 sau khi thêm `t = (4, 6)` sẽ thành: `T = [(1, 3), (4, 6), (8, 10)]`
 
 sau khi thêm `t = (2, 9)` sẽ thành: `T = [(1, 10)]`
-
 ...
+
+cách làm sẽ là bạn sẽ insert `t` mới vào trong `T` theo đúng thứ tự, và cố gắng merge lại những phần tử overlap.
 
 và hàm `find()` sẽ dựa trên order tuple đó để tìm thay vì duyệt qua toàn bộ.
 
@@ -228,4 +231,5 @@ TBD
 #### References:
 
 + [132-pattern](https://leetcode.com/problems/132-pattern)
++ [merge-intervals](https://leetcode.com/problems/merge-intervals)
 + [dynamic-programming-and-linear-programming](https://www.quora.com/What-is-the-difference-between-dynamic-programming-and-linear-programming)
